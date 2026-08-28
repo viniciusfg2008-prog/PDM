@@ -2,13 +2,15 @@ package com.example.applicativo;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,17 +20,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        Button b = findViewById(R.id.button);
-        TextView tv = findViewById(R.id.textView);
-        b.setOnClickListener(view -> {
-            contador++;
-            tv.setText(Integer.toString(contador));
-        });
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        EditText edMin, edMax;
+        edMin = findViewById(R.id.edMin);
+        edMax = findViewById(R.id.edMax);
+
+        TextView tv = findViewById(R.id.textView);
+        Button b = findViewById(R.id.ButtonSortear);
+
+        b.setOnClickListener( v -> {
+            Random random = new Random();
+            int min = Integer.parseInt(edMin.getText().toString());
+            int max = Integer.parseInt(edMax.getText().toString());
+
+
+            int r = (random.nextInt(max-min))+min;
+
+            tv.setText("");
+        });
+        };
+
+
     }
-}
