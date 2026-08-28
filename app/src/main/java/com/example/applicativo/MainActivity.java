@@ -34,13 +34,26 @@ public class MainActivity extends AppCompatActivity {
 
         b.setOnClickListener( v -> {
             Random random = new Random();
+
+            String smin = edMin.getText().toString();
+            String smax = edMax.getText().toString();
+            if (smin.trim().equals("")){
+                edMin.setError("Informe um valor");
+                return;
+            }
+            if (smax.trim().equals("")){
+                edMax.setError("Informe um valor");
+                return;
+            }
+
             int min = Integer.parseInt(edMin.getText().toString());
             int max = Integer.parseInt(edMax.getText().toString());
 
 
-            int r = (random.nextInt(max-min))+min;
 
-            tv.setText("");
+
+            int r = (random.nextInt(max-min))+min;
+            tv.setText(Integer.toString(r));
         });
         };
 
