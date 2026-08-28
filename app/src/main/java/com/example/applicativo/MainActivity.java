@@ -39,16 +39,21 @@ public class MainActivity extends AppCompatActivity {
             String smax = edMax.getText().toString();
             if (smin.trim().equals("")){
                 edMin.setError("Informe um valor");
+                edMin.requestFocus();
                 return;
             }
             if (smax.trim().equals("")){
                 edMax.setError("Informe um valor");
+                edMax.requestFocus();
                 return;
             }
 
             int min = Integer.parseInt(edMin.getText().toString());
             int max = Integer.parseInt(edMax.getText().toString());
-
+            if (min>=max){
+                edMax.setError("Valor máximo deve ser maior que o mínimo");
+                return;
+            }
 
 
 
