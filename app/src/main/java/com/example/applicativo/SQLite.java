@@ -1,4 +1,4 @@
-package com.example.myapp;
+package com.example.applicativo;
 
 
 import android.content.Intent;
@@ -12,10 +12,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.meuappincrivel.R;
 
-public class MainActivity extends AppCompatActivity {
 
+public class SQLite extends AppCompatActivity {
 
+    SQLiteDataBase database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        database = openOrCreateDatabase()
+        database = openOrCreateDatabase(name: "notinhas", MODE_PRIVATE, factory: null);
+        database.execSQL("")
 
     }}
