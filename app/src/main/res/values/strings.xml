@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My App</string>
+    <string name="hint_nome">Digite um nome</string>
+    <string name="btn_adicionar">Adicionar</string>
 </resources>
